@@ -22,15 +22,15 @@ declare i=1
 declare count=0
 while [ $i -le 10 ]; do
 	read readState <$final_query
-	printf "%s \n" $readState
-	if [[ $readState == "poll_schedule_timeout" ]]; then 
+#	printf "%s \n" $readState
+	if [[ $readState == 0 ]]; then 
 		count=$(($count+1))
 	fi
 	i=$(($i+1))
 
 	sleep 1
 done
-printf "value is %d \n" $count
+#printf "value is %d \n" $count
 if [[ $count > 8 ]]; then 
 	kill $pid
 fi

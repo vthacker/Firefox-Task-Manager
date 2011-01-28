@@ -1,0 +1,34 @@
+This small script insures that firefox does not end up running even after you have closed it. Sometimes the firefox process keeps running even after closing it and ends up hogging 100% cpu which is not desirable. So this scipt is meant for those users who have actually faced such a problem.
+
+Currently this a a Linux only script.
+
+There are 2 scripts included.
+
+1. kill.sh which actually montors unusual activity of the firefox process and determines if it is using 100%cpu.
+
+I use to waiting channel of the firefox-process to determine if it has not being closed properly. The reason being whenever it happend on my laptop the waiting channel becomes 0 . So if the waiting channel remains 0 for 10 seconds consecutively then the process is killed.
+
+kills.sh should be placed in the home directory.
+
+2. check.sh This should be placed in the correct directory [Refer Bootup Directory] and this scipt calls the kills.sh script periodically (15 mins.) for the test case mentioned above. 
+
+
+Bootup Directory:
+
+PUT A SCRIPT BEFORE LOGGING IN
+1. Write your script in bash 
+2. Save it in a file named startup or anything you wish to.. 
+3. Copy this file to the directory /etc/intit.d/ (you may use cp -v source destination or mv -v source destination) 
+4. Make your copied script executable by using chmod +x startup 
+5. then type the following commands update-rc.d startup defaults 
+
+INSERTING A SCRIPT AFTER LOGGING IN
+1. Doing this is as easy as doing it in Windows 
+2. Go to System->Preferences->StartUp Applications 
+3. Click Add 
+4. Write your App's name 
+5. Make sure your app is executable and provide a link to it in the command prompt 
+6. You can also a bash command in command dialog box 
+7. Enter a description if you want to 
+8. Click Ok and you are done? 
+

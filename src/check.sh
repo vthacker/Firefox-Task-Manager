@@ -1,5 +1,10 @@
+declare a
+a="/kills.sh"
+declare b
+b=$HOME$a
+
 while true; do
-sh "/home/varun/Desktop/varun/ff/kills.sh"
-sleep 5
+bash $b
+sleep 300
 done
 exit 0
