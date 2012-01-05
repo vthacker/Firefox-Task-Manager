@@ -35,4 +35,10 @@ if [[ $count > 8 ]]; then
 	kill $pid
 fi
 
+# different approach start
+#ps -eo "%c %p" | grep firefox-bin |grep [0-9]*$
+#cat "/proc/[pid]/wchan"
+#param=['ps','-eo','%c %p']
+#var=subprocess.Popen(param)
+#end
 exit 0
